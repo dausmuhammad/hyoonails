@@ -1,0 +1,23 @@
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
+.card {
+    margin-top: 2%;
+    margin-right: 0.5%;
+}
+
+.card-header{
+    background-color: rgb(255, 255, 255);
+    padding-left: 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.3rem;
+    border-top: 3px solid black;
+}
+
+.delete{
+    color: red;
+}
+table.dataTable tbody tr.selected {
+    background-color: rgb(206, 212, 218);
+}
