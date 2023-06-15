@@ -74,12 +74,14 @@
         $("#nav-user").prop("hidden",true);
         $("#nav-warna").prop("hidden",true);
         $("#nav-produk").prop("hidden",true);
+        $("#nav-laporan-keuangan").prop("hidden",true);
     }else if(role == 3){
         $("#nav-home").prop("hidden",false);
         $("#nav-transaksi").prop("hidden",true);
         $("#nav-user").prop("hidden",true);
         $("#nav-warna").prop("hidden",false);
         $("#nav-produk").prop("hidden",false);
+        $("#nav-laporan-keuangan").prop("hidden",true);
     }else if(role == 1){
         $("#nav-home").prop("hidden",false);
         $("#nav-transaksi").prop("hidden",false);

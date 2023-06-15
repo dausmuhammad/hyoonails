@@ -83,14 +83,16 @@ class Controller_transaksi extends CI_Controller {
 	}
 
 	public function cetakInvoice(){
-		
+		// var_dump($this->input->post("orderDataHeader"));
+		// var_dump($this->input->post("orderDataDetail"));
+		// exit();
 		$this->load->library('pdf_generator');
 		$this->data['title_pdf'] = 'Invoice';
         $this->data['orderDataHeader'] = $this->input->post("orderDataHeader");
 		$this->data['orderDataDetail'] = $this->input->post("orderDataDetail");
 		
         // filename dari pdf ketika didownload
-        $file_pdf = 'Invoice';
+        $file_pdf = 'Invoice '.$this->data['orderDataHeader'][0]['order_no'];
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape

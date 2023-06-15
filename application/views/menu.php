@@ -68,6 +68,12 @@
                         <p id="title-header">Data Produk</p>
                     </a>
                 </li>
+                <li class="nav-item"  id="nav-laporan-keuangan">
+                    <a href="<?php echo base_url() ?>Controller_lap_keuangan" fieldname="Laporan Keuangan" class="nav-link">
+                        <i class="nav-icon fas fa-file"></i>
+                        <p id="title-header">Laporan Keuangan</p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

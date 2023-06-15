@@ -65,7 +65,11 @@ class Models extends CI_model
 	{
 		return $this->db->insert('master_warna', $param);
 	}
-
+	public function insertUangMasuk($param)
+	{
+		return $this->db->insert('lap_keuangan', $param);
+	}
+	
 	public function updateWarna($param)
 	{
 		$now = date('Y-m-d H:i:s');
@@ -164,5 +168,9 @@ class Models extends CI_model
 		GROUP BY  YEAR(order_date)
 		ORDER BY  YEAR(order_date)");
 		return $data->result();
+	}
+
+	public function getLapKeuangan(){
+		return $this->db->get('lap_keuangan')->result();
 	}
 }
