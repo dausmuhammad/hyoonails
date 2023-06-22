@@ -21,27 +21,25 @@ app.LapKeuangan = {
 			file.cetakLaporanKeuangan(data);
 		});
 
-		$("#inp-uang-masuk").focus(function () {
-			$(this).val(accounting.unformat($(this).val()))
+		$("#btn-cetak-lap-keuangan").click(function () {
+			let arrTbl = tableLapKeuangan.rows().data();
+			let data = [];
+			let totalKeseluruhan = 0;
+			$.each(arrTbl, function(){
+				totalKeseluruhan += parseInt(accounting.unformat(this[5]));
+				let obj = {
+					uang_masuk : this[0],
+					tanggal_uang_masuk : this[1],
+					uang_keluar : this[2],
+					tanggal_uang_keluar : this[3],
+					total : this[5],
+					totalKeseluruhan : totalKeseluruhan
+				}
+				data.push(obj);
+			})
+			console.log(data);
+			file.cetakAllLaporanKeuangan(data);
 		})
-
-		$("#inp-uang-masuk").blur(function () {
-			$(this).val(accounting.formatMoney($(this).val(), '', 2, ',', '.'),)
-		})
-
-        $("#inp-uang-keluar").focus(function () {
-			$(this).val(accounting.unformat($(this).val()))
-		})
-
-		$("#inp-uang-keluar").blur(function () {
-			$(this).val(accounting.formatMoney($(this).val(), '', 2, ',', '.'),)
-		})
-
-		$("#btn-reset-produk").click(function () {
-			$(".div-produk").val("");
-			file.getKodeBarang();
-		})
-
 
 	},
 
@@ -169,6 +167,27 @@ app.LapKeuangan = {
 				tanggal_uang_keluar : data[3],
 				keterangan : data[4],
 				total : data[5],
+			},
+			success: function (response) {
+				try {
+				} catch (e) {
+					toastr.error(e.message);
+				}
+			},
+			error: function (response) {
+				console.log(response);
+			}
+		})
+	},
+
+	cetakAllLaporanKeuangan: function (data) {
+		// console.log(data);
+		$.ajax({
+			url: app.base_url + this.controller + "cetakAllLaporanKeuangan",
+			// async: false,
+			type: "POST",
+			data: {
+				data :  data
 			},
 			success: function (response) {
 				try {

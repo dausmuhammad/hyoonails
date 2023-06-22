@@ -14,7 +14,9 @@
                                         <label>Uang Masuk :</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input type="text" class="form-control form-control-border border-width-1 form-control-sm" id="inp-uang-masuk" placeholder="Uang Masuk">
+                                        <input type="text"
+                                            class="form-control form-control-border border-width-1 form-control-sm"
+                                            id="inp-uang-masuk" placeholder="Uang Masuk">
                                     </div>
                                 </div>
                             </div>
@@ -24,7 +26,9 @@
                                         <label>Tanggal Uang Masuk :</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input type="date" class="form-control form-control-border border-width-1 form-control-sm div-produk" id="inp-tanggal-masuk">
+                                        <input type="date"
+                                            class="form-control form-control-border border-width-1 form-control-sm div-produk"
+                                            id="inp-tanggal-masuk">
                                     </div>
                                 </div>
                             </div>
@@ -34,7 +38,9 @@
                                         <label>Uang Keluar :</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input type="text" class="form-control form-control-border border-width-1 form-control-sm" id="inp-uang-keluar" placeholder="Uang Keluar">
+                                        <input type="text"
+                                            class="form-control form-control-border border-width-1 form-control-sm"
+                                            id="inp-uang-keluar" placeholder="Uang Keluar">
                                     </div>
                                 </div>
                             </div>
@@ -44,7 +50,9 @@
                                         <label>Tanggal Uang Keluar :</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input type="date" class="form-control form-control-border border-width-1 form-control-sm div-produk" id="inp-tanggal-keluar" >
+                                        <input type="date"
+                                            class="form-control form-control-border border-width-1 form-control-sm div-produk"
+                                            id="inp-tanggal-keluar">
                                     </div>
                                 </div>
                             </div>
@@ -55,19 +63,23 @@
                                         <label>Keterangan Pengeluaran :</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <textarea  class="form-control form-control-border border-width-1 form-control-sm div-produk" name="" id="txt-keterangan" cols="30" rows="5"></textarea>
+                                        <textarea
+                                            class="form-control form-control-border border-width-1 form-control-sm div-produk"
+                                            name="" id="txt-keterangan" cols="30" rows="5"></textarea>
                                         <!-- <input type="date" class="form-control form-control-border border-width-1 form-control-sm div-produk" id="inp-tanggal-keluar" > -->
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group float-lg-right col-lg-3">
-                                <button class="btn btn-block btn-danger btn-flat btn-sm " id="btn-reset-lap-keuangan"><span class="fa fa-trash"></span> Reset</button>
+                                <button class="btn btn-block btn-danger btn-flat btn-sm "
+                                    id="btn-reset-lap-keuangan"><span class="fa fa-trash"></span> Reset</button>
                             </div>
                             <div class="form-group float-lg-right col-lg-3">
-                                <button class="btn btn-block btn-info btn-flat btn-sm " id="btn-simpan-lap-keuangan"><span class="fa fa-plus-circle"></span> Simpan</button>
+                                <button class="btn btn-block btn-info btn-flat btn-sm "
+                                    id="btn-simpan-lap-keuangan"><span class="fa fa-plus-circle"></span> Simpan</button>
                             </div>
-                            
+
                         </div>
                     </div>
 
@@ -78,7 +90,14 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
+                    
+                    <div class="form-group float-lg-left col-lg-4">
                     <h5>List Laporan Keuangan</h5>
+                    </div>
+                    <div class="form-group float-lg-right col-lg-2">
+                        <button class="btn btn-block btn-danger btn-flat btn-sm " id="btn-cetak-lap-keuangan"><span
+                                class="fa fa-print"></span> Print All</button>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="row">

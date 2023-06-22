@@ -94,4 +94,24 @@ class Controller_lap_keuangan extends CI_Controller {
         // run dompdf
         $this->pdf_generator->generate($html,$file_pdf,$paper,$orientation);
 	}
+
+	public function cetakAllLaporanKeuangan(){
+		// var_dump($this->input->post("data"));
+		// exit();
+		$this->load->library('pdf_generator');
+		$this->data['title_pdf'] = 'Laporan Keuangan';
+        $this->data['data'] =  $this->input->post("data");
+		
+        // filename dari pdf ketika didownload
+        $file_pdf = 'Laporan Keuangan Keseluruhan';
+        // setting paper
+        $paper = 'A4';
+        //orientasi paper potrait / landscape
+        $orientation = "landscape";
+        
+		$html = $this->load->view('page/v_lap_keuangan_all',$this->data, true);	    
+        
+        // run dompdf
+        $this->pdf_generator->generate($html,$file_pdf,$paper,$orientation);
+	}
 }

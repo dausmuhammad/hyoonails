@@ -78,20 +78,20 @@
     'normal' => $fontDir . '/DejaVuSerif',
   ),
   'source sans pro' => array(
-    'italic' => $fontDir . '/source-sans-pro-italic_27672a92dcedb2218abd2dadee4fe950',
-    '300' => $fontDir . '/source-sans-pro-300_dbbdd64c03e29f61c9033b77e28cbe3e',
-    'normal' => $fontDir . '/source-sans-pro-normal_a457a0c6f86469b4a65db96256674d7c',
-    'bold' => $fontDir . '/source-sans-pro-bold_cc1ea6f6b63a94074b2e903a95fedc64',
+    'italic' => $fontDir . '/source-sans-pro-italic_af17c8440088929b38c5cfe930d7915d',
+    '300' => $fontDir . '/source-sans-pro-300_c6077ec99d149827fee17e2ea27788e4',
+    'normal' => $fontDir . '/source-sans-pro-normal_a331146e176a0c94e64a58f063c4f2b5',
+    'bold' => $fontDir . '/source-sans-pro-bold_cfebb083c1921633494989255bc500d0',
   ),
   'material icons' => array(
-    'normal' => $fontDir . '/material-icons-normal_068f47cc203bdcfe98c32348c776f16d',
+    'normal' => $fontDir . '/material-icons-normal_c8ff36056e8dee147c1ed2d6ed4318a4',
   ),
   'font awesome 5 brands' => array(
-    'normal' => $fontDir . '/font-awesome-5-brands-normal_a70024d94c7344037213691252f7bef7',
+    'normal' => $fontDir . '/font-awesome-5-brands-normal_78f1955c5cba44974365eed81c51d65b',
   ),
   'font awesome 5 free' => array(
-    'normal' => $fontDir . '/font-awesome-5-free-normal_8c3097dfc5dbb887f5a47cb9e562c6e5',
-    '900' => $fontDir . '/font-awesome-5-free-900_be4fa0eda94a9d7cf223edee0ff8ce47',
+    'normal' => $fontDir . '/font-awesome-5-free-normal_8a5c37511aa0b298c820e08c901ebf15',
+    '900' => $fontDir . '/font-awesome-5-free-900_8d33f1de13cfeb8d7a501963f9081f59',
   ),
   'summernote' => array(
     'normal' => $fontDir . '/summernote-normal_3e2b9d864629c139f556a13f20ddcec3',

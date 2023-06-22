@@ -173,4 +173,14 @@ class Models extends CI_model
 	public function getLapKeuangan(){
 		return $this->db->get('lap_keuangan')->result();
 	}
+
+	public function getHistory($param){
+		$data =  $this->db->query("SELECT a.order_no, a.order_date, a.total_price, a.insert_by FROM order_trans_header a WHERE DATE(a.order_date) = ?", array($param));
+		return $data->result();
+	}
+	public function getHistoryDetail($param){
+		$data =  $this->db->query("SELECT a.order_no, a.kode_produk, b.nama_produk, a.jumlah_beli, a.total_price FROM 
+		order_trans_detail a, master_produk b WHERE a.kode_produk = b.kode_produk AND a.order_no = ?", array($param));
+		return $data->result();
+	}
 }

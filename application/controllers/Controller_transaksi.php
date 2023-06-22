@@ -103,4 +103,19 @@ class Controller_transaksi extends CI_Controller {
         // run dompdf
         $this->pdf_generator->generate($html,$file_pdf,$paper,$orientation);
 	}
+
+	public function getHistory()
+	{	
+		$order_date = $this->input->post("order_date");
+		$data = $this->models->getHistory($order_date);
+		$this->output->set_content_type('application/json');
+		$this->output->set_output(json_encode($data));
+	}
+	public function getHistoryDetail()
+	{	
+		$order_no = $this->input->post("order_no");
+		$data = $this->models->getHistoryDetail($order_no);
+		$this->output->set_content_type('application/json');
+		$this->output->set_output(json_encode($data));
+	}
 }

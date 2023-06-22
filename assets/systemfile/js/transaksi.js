@@ -14,6 +14,14 @@ app.Transaksi = {
 		tablePilihProduk = $('#tbl-pilih-produk').DataTable({
 			responsive: true
 		});
+		tableHistoryTrans = $('#tbl-history-trans').DataTable({
+			responsive: true
+		});
+		tableHistoryDetail = $('#tbl-detail-history').DataTable({
+			responsive: true
+		});
+		
+		
 		file.getNoOrder();
 		$("#inp-nama-produk").click(function () {
 			$('#inp-jumlah-beli').removeClass('is-invalid');
@@ -114,6 +122,12 @@ app.Transaksi = {
 			})
 		});
 
+		$('#tbl-history-trans tbody').on('click', '.btn-detail', function () {
+			let data = tableHistoryTrans.row($(this).parents('tr')).data();
+			console.log(data);
+			file.getHistoryDetail(data[1]);
+		});
+
 		$("#btn-submit-order").click(function () {
 			Swal.fire({
 				title: 'Konfirmasi',
@@ -146,6 +160,22 @@ app.Transaksi = {
 					});
 				}
 			})
+		})
+
+		$("#btn-history").click(function(){
+			Swal.fire({
+				title: 'Pilih Tanggal',
+				html: '<input type="date" class ="form-control" id="tanggal-history">',
+				// showConfirmButton: false,
+				customClass: 'swal2-overflow',
+				allowOutsideClick: false,
+			  }).then(function(result) {
+				if (result.value) {
+					let order_date = $("#tanggal-history").val();
+					console.log(result.value);
+					file.getHistory(order_date);
+				}
+			  });
 		})
 
 		$("#btn-cancel-order").click(function () {
@@ -334,7 +364,82 @@ app.Transaksi = {
 				console.log(response);
 			}
 		})
-	}
+	},
+	getHistory: function (order_date) {
+		$.ajax({
+			url: app.base_url + this.controller + "getHistory",
+			type: "POST",
+			data : {
+				order_date : order_date
+			},
+			success: function (response) {
+				try {
+					console.log(response);
+					let index = 1;
+					// $("#inp-no-pesanan").val(response);
+					let data = [];
+					$.each(response, function () {
+						data.push([
+							index,
+							this['order_no'],
+							this['order_date'],
+							accounting.formatMoney(this['total_price'], '', 2, ',', '.'),
+							this['insert_by'],
+							'<a href="#" class="btn-detail"><span class="fa fa-eye"></span></a>'
+						]);
+						index++;
+					})
+
+					tableHistoryTrans.clear();
+					tableHistoryTrans.rows.add(data).draw(false);
+					$("#modal-view-transaksi").modal({ backdrop: 'static', keyboard: false }).show();
+				} catch (e) {
+					toastr.error(e.message);
+				}
+			},
+			error: function (response) {
+				console.log(response);
+			}
+		})
+	},
+	getHistoryDetail: function (order_no) {
+		$.ajax({
+			url: app.base_url + this.controller + "getHistoryDetail",
+			type: "POST",
+			data : {
+				order_no : order_no
+			},
+			success: function (response) {
+				try {
+					console.log(response);
+					let index = 1;
+					let data = [];
+					$.each(response, function () {
+						data.push([
+							index,
+							this['order_no'],
+							this['kode_produk'],
+							this['nama_produk'],
+							this['jumlah_beli'],
+							accounting.formatMoney(this['total_price'], '', 2, ',', '.'),
+							'<a href="#" class="btn-detail"><span class="fa fa-eye"></span></a>'
+						]);
+						index++;
+					})
+
+					tableHistoryDetail.clear();
+					tableHistoryDetail.rows.add(data).draw(false);
+					$("#modal-history-detail").modal({ backdrop: 'static', keyboard: false }).show();
+				} catch (e) {
+					toastr.error(e.message);
+				}
+			},
+			error: function (response) {
+				console.log(response);
+			}
+		})
+	},
+	
 
 }
 
