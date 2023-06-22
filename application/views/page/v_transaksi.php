@@ -192,14 +192,14 @@
                                     <th>Kode Produk</th>
                                     <th>Tanggal Order</th>
                                     <th>Total Belanja</th>
-                                    <th>Nama Kasir</th>
-                                    <th>Action</th>
+                                    <th>Jumlah Beli</th>
+                                    <th>Total Harga</th>
                                 </thead>
                             </table>
                         </div>
                     </div>
                     <div class="modal-footer justify-content-between">
-                        <button class="btn btn-block btn-danger btn-flat btn-sm" data-dismiss="modal"><span
+                        <button class="btn btn-block btn-danger btn-flat btn-sm" id="btn-keluar-detail" data-dismiss="modal"><span
                                 class="fa fa-times-circle"></span> Keluar</button>
                     </div>
                 </div>

@@ -100,6 +100,12 @@ app.Transaksi = {
 			}
 		});
 
+		$("#btn-keluar-detail").click(function(){
+			$("#modal-view-transaksi").modal({ backdrop: 'static', keyboard: false }).show();
+		})
+
+		
+
 		$('#tbl-daftar-pesanan tbody').on('click', '.btn-hapus-pesanan', function () {
 			// console.log(tableStokBarang.row($(this).parents('tr')).data());
 			Swal.fire({
@@ -430,6 +436,7 @@ app.Transaksi = {
 					tableHistoryDetail.clear();
 					tableHistoryDetail.rows.add(data).draw(false);
 					$("#modal-history-detail").modal({ backdrop: 'static', keyboard: false }).show();
+					$("#modal-view-transaksi").modal({ backdrop: 'static', keyboard: false }).hide();
 				} catch (e) {
 					toastr.error(e.message);
 				}
