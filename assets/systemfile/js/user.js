@@ -51,7 +51,7 @@ app.User = {
 					allowOutsideClick: false
 				}).then((result) => {
 					if (result.isConfirmed) {
-						file.hapusUser(sessionUsername);
+						file.hapusUser(data[0]);
 					}
 				})
 			}
@@ -60,12 +60,12 @@ app.User = {
 
 	},
 
-	hapusUser: function (sessionUsername) {
+	hapusUser: function (username) {
 		$.ajax({
 			url: app.base_url + this.controller + "hapusUser",
 			type: "POST",
 			data: {
-				username: sessionUsername,
+				username: username,
 			},
 			success: function (response) {
 				try {
