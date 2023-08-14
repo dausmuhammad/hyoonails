@@ -48,6 +48,7 @@
                                             <option value="">--Silahkan Pilih--</option>
                                             <option value="1">Admin</option>
                                             <option value="2">Kasir</option>
+                                            <option value="3">Keuangan</option>
                                         </select>
                                     </div>
                                 </div>
