@@ -83,9 +83,11 @@
                                     <table class="table" id="tbl-user" width="100%">
                                         <thead>
                                             <th>Username</th>
+                                            <th>Password</th>
                                             <th>Nama Lengkap</th>
+                                            <th>Kode Role</th>
                                             <th>Role</th>
-                                            <!-- <th>Action</th> -->
+                                            <th>Action</th>
                                         </thead>
                                         <!-- <tfoot>
                                             <th>Total Bayar</th>

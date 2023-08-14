@@ -50,10 +50,12 @@ class Controller_user extends CI_Controller {
 	public function updateUser(){
 		$now = date('Y-m-d H:i:s');
 		$param = array(
-			"kode_warna " => $this->input->post("kode_warna"),
-			"nama_warna" =>  $this->input->post("nama_warna"),
-			"insert_by" =>  $_SESSION['username'],
-			"insert_date" => $now
+			"username " => $this->input->post("username"),
+			"password" =>  $this->input->post("password"),
+			"nama_lengkap" =>  $this->input->post("nama_lengkap"),
+			"role" => $this->input->post("role"),
+			"update_date" => $now,
+			"update_by " => $_SESSION['username']
 		);
 		
 		$data = $this->models->updateUser($param);
@@ -61,7 +63,7 @@ class Controller_user extends CI_Controller {
 		$this->output->set_output(json_encode($data));
 	}
 	public function hapusUser(){
-		$data = $this->models->hapusUser($this->input->post('kode_warna'));
+		$data = $this->models->hapusUser($this->input->post('username'));
 		$this->output->set_content_type('application/json');
 		$this->output->set_output(json_encode($data));
 	}

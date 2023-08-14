@@ -140,6 +140,20 @@ class Models extends CI_model
 		return $this->db->insert('master_user', $param);
 	}
 
+	public function updateUser($param)
+	{
+		$now = date('Y-m-d H:i:s');
+		$param = array(
+			"password" =>  $this->input->post("password"),
+			"nama_lengkap" =>  $this->input->post("nama_lengkap"),
+			"role" => $this->input->post("role"),
+			"update_date" => $now,
+			"update_by " => $_SESSION['username']
+		);
+		$this->db->where('username',$this->input->post("username"));
+		return $this->db->update('master_user', $param);;
+	}
+
 	public function getAllUser() {
 		return $this->db->get('master_user')->result();
 	}
@@ -182,5 +196,10 @@ class Models extends CI_model
 		$data =  $this->db->query("SELECT a.order_no, a.kode_produk, b.nama_produk, a.jumlah_beli, a.total_price FROM 
 		order_trans_detail a, master_produk b WHERE a.kode_produk = b.kode_produk AND a.order_no = ?", array($param));
 		return $data->result();
+	}
+
+	public function hapusUser($param)
+	{
+		return $this->db->delete('master_user', array('username'=>$param));
 	}
 }

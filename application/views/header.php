@@ -41,3 +41,8 @@
 <body class="layout-fixed layout-navbar-fixed">
     
 <input type="hidden" id="inp-role" value="<?php echo $_SESSION['role'] ?>">
+<input type="hidden" value="<?php
+		if(isset($_SESSION['username'])){
+			echo $_SESSION['username'];
+		} 
+	?>" id="session-username">
